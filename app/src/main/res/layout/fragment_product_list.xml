@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.ProductListFragment"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <EditText
+        android:id="@+id/searchEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search"
+        android:textColor="@color/black"
+        android:drawableStart="@drawable/ic_search">
+
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp">
+
+        <Button
+            android:id="@+id/music_search"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:backgroundTint="@color/button_bg"
+            android:text="Music">
+
+        </Button>
+        <Button
+            android:id="@+id/movie_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/button_bg"
+            android:textColor="@color/white"
+            android:text="Movie">
+
+        </Button>
+        <Button
+            android:id="@+id/book_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/button_bg"
+            android:text="Book">
+
+        </Button>
+        <Button
+            android:id="@+id/app_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/button_bg"
+            android:text="App">
+
+        </Button>
+
+
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_music_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_product"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

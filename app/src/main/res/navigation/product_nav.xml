@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/music_nav"
+    app:startDestination="@id/musicListFragment">
+    <fragment
+        android:id="@+id/musicListFragment"
+        android:name="com.guleryigitcan.HepsiburadaCaseStudy.fragment.ProductListFragment"
+        android:label="fragment_music_list"
+        tools:layout="@layout/fragment_product_list" >
+        <action
+            android:id="@+id/action_musicListFragment_to_musicDetailFragment"
+            app:destination="@id/musicDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/musicDetailFragment"
+        android:name="com.guleryigitcan.HepsiburadaCaseStudy.fragment.ProductDetailFragment"
+        android:label="fragment_music_detail"
+        tools:layout="@layout/fragment_product_detail" >
+        <action
+            android:id="@+id/action_musicDetailFragment_to_musicListFragment"
+            app:destination="@id/musicListFragment"
+             />
+    </fragment>
+</navigation>
