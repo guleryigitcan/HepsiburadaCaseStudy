@@ -7,31 +7,13 @@ import retrofit2.http.Query
 interface ItunesService {
 
 
-    @GET("search?")
+    //Fetching data with search string
+    @GET("search?limit=20&")
     fun getSearch(
         @Query("entity")entity:String, @Query("term")term:String
     ): Call<ProductListModel>
 
-
-    @GET("search?entity=musicTrack&")
-    fun getMusicWithSearch(
-        @Query("term")term:String
-    ): Call<ProductListModel>
-
-    @GET("search?media=movie&")
-    fun getMovieWithSearch(
-        @Query("term")term:String
-    ): Call<ProductListModel>
-
-    @GET("search?entity=ebook&")
-    fun getBookWithSearch(
-        @Query("term")term:String
-    ): Call<ProductListModel>
-    @GET("search?entity=software&")
-    fun getAppWithSearch(
-        @Query("term")term:String
-    ): Call<ProductListModel>
-
+    //Fetching data with id
     @GET("lookup?")
     fun getById(
         @Query("id")term:String

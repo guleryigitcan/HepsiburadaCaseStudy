@@ -87,8 +87,9 @@ class ProductListFragment : Fragment(),Comminicator {
                     override fun afterTextChanged(p0: Editable?) {
                         if(musicButton.isSelected){
                             if(p0.toString().length>2){
-                               // search(p0.toString(),"musicTrack")
                                 musicViewModel.searchData(p0.toString(),"musicTrack")
+                            }
+                            else{
 
                             }
                         }
@@ -109,6 +110,7 @@ class ProductListFragment : Fragment(),Comminicator {
 
 
         }
+
         movieButton.setOnClickListener{
             recyclerViewMusicList.adapter=null
             musicButton.setBackgroundColor(ContextCompat.getColor(requireContext(),R.color.button_bg))
@@ -137,8 +139,10 @@ class ProductListFragment : Fragment(),Comminicator {
                     override fun afterTextChanged(p0: Editable?) {
                         if(movieButton.isSelected){
                             if(p0.toString().length>2){
-                                //search(p0.toString(),"movie")
                                 musicViewModel.searchData(p0.toString(),"movie")
+                            }
+                            else{
+
                             }
                         }
 
@@ -178,11 +182,15 @@ class ProductListFragment : Fragment(),Comminicator {
                 }
 
                 override fun afterTextChanged(p0: Editable?) {
-                    if(bookButton.isSelected)
-                    if(p0.toString().length>2){
-                       // search(p0.toString(),"ebook")
-                        musicViewModel.searchData(p0.toString(),"ebook")
+                    if(bookButton.isSelected){
+                        if(p0.toString().length>2){
+                            musicViewModel.searchData(p0.toString(),"ebook")
+                        }
+                        else{
+
+                        }
                     }
+
 
                 }
 
@@ -217,8 +225,10 @@ class ProductListFragment : Fragment(),Comminicator {
                 override fun afterTextChanged(p0: Editable?) {
                     if(appButton.isSelected){
                         if(p0.toString().length>2){
-                            //search(p0.toString(),"software")
                             musicViewModel.searchData(p0.toString(),"software")
+                        }
+                        else{
+
                         }
                     }
 
@@ -236,30 +246,7 @@ class ProductListFragment : Fragment(),Comminicator {
         return view
     }
 
-    fun search(p0:String, entity:String){
 
-        val recyclerViewMusicList=view?.findViewById<RecyclerView>(R.id.recycler_view_music_list)
-        ItunesRetrofitFactory.instance.service?.getSearch(entity,p0.toString())?.enqueue(object :Callback<ProductListModel>{
-            override fun onResponse(
-                call: Call<ProductListModel>?,
-                response: Response<ProductListModel>?
-            ) {
-                val musicListModel= response?.body()
-
-                val adapter= musicListModel?.results?.let { MyAdapter(it,this@ProductListFragment) }
-
-
-                recyclerViewMusicList?.adapter=adapter
-
-            }
-
-            override fun onFailure(call: Call<ProductListModel>?, t: Throwable?) {
-                TODO("Not yet implemented")
-            }
-
-        })
-
-    }
 
     override fun passData(trackId: Int) {
         val bundle = Bundle()
