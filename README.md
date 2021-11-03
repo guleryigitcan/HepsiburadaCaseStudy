@@ -12,6 +12,9 @@
  * ✔ Retrofit
  * ✔ Okhttp
 
+# How to work?
+-You should click the button to search the category.
+
 # In App Gif
 
 
